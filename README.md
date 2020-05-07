@@ -23,6 +23,7 @@ To use this library in your code:
   ```
 
 Please create/use [Mapbox](https://mapbox.com) account to obtain Mapbox access token.
+
 If you have Mapbox account, you can reach access token from [Mapbox account dashboard](https://account.mapbox.com).
 
 A very [simple example](https://github.com/berkayoruc/mapbox_geocoding/blob/master/example/lib/main.dart) :
