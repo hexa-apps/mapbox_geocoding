@@ -26,3 +26,8 @@
 ## [0.0.6] - 2020-05-08
 
 * [Geocoding optional parameters](https://docs.mapbox.com/api/search/#geocoding) implemented.
+
+## [0.0.7] - 2020-05-08
+
+* Geocoding optional parameters bug fixed.
+* Example updated.
