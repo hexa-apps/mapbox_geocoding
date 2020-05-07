@@ -57,4 +57,4 @@ getCity(double lat, double lng, String apiKey) async {
 
 ## License ##
 
-MIT
+[MIT](https://github.com/berkayoruc/mapbox_geocoding/blob/master/LICENSE)

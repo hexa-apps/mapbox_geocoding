@@ -8,3 +8,9 @@
 * License added.
 * Example created. (Do not use!)
 * Github repository specified.
+
+## [0.0.3] - 2020-05-07
+
+* Readme updated.
+* Example updated.
+* Forward and reverse geocoding model' documentation in [dart] code.

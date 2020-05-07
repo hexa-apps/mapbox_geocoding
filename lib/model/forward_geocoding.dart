@@ -1,3 +1,7 @@
+///String [type] return featurecollections, 
+///List<Stirng> [query] which keyword searched, 
+///List<Feauters> [features] returned features (if possible returns default 5 features), 
+///String [attribution] API attribution.
 class ForwardGeocoding {
   String type;
   List<String> query;
@@ -30,6 +34,17 @@ class ForwardGeocoding {
   }
 }
 
+///String [id] feature id,
+///String [type] feature type,
+///List<String> [placeType] feature placetype,
+///num [relevance] feature relevance,
+///Properties [properties] feature properties,
+///String [text] feature text,
+///String [placeName] feature place name,
+///List<num> [bbox] feature boundary box coordinates,
+///List<num> [center] feature center coordinates,
+///Geometry [geometry] feature geometry,
+///List<Context> [context] feature context.
 class Features {
   String id;
   String type;
