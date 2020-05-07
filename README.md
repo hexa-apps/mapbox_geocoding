@@ -1,4 +1,4 @@
-# mapbox_geocoding
+# Dart Mapbox Geocoding API (not official)
 
 A Flutter package Mapbox Geocoding API. Package is not official product of mapbox.
 
