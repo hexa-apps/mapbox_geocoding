@@ -1,6 +1,7 @@
 # mapbox_geocoding
 
 A Flutter package Mapbox Geocoding API. Package is not official product of mapbox.
+
 Here is full documentation about [Mapbox Geocoding API](https://docs.mapbox.com/api/search/#geocoding).
 
 ## Getting Started
