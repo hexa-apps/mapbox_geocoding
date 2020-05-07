@@ -5,6 +5,10 @@ A Flutter package Mapbox Geocoding API. Package is not official product of mapbo
 
 This project is a library to use [Mapbox Geocoding API](https://docs.mapbox.com/api/search/#geocoding) from `dart` scripts.
 
+## Documentation ##
+
+Library documentation is [here](https://pub.dev/documentation/mapbox_geocoding/latest/).
+
 ## Usage ##
 
 To use this library in your code:
