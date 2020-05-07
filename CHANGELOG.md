@@ -1,3 +1,10 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - 2020-05-07
 
-* TODO: Describe initial release.
+* First version.
+
+## [0.0.2] - 2020-05-07
+
+* Pub.dev changes.
+* License added.
+* Example created. (Do not use!)
+* Github repository specified.
