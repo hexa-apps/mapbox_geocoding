@@ -55,4 +55,6 @@ getCity(double lat, double lng, String apiKey) async {
 }
 ```
 
+## License ##
 
+MIT
