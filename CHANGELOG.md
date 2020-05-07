@@ -14,3 +14,7 @@
 * Readme updated.
 * Example updated.
 * Forward and reverse geocoding model' documentation in [dart] code.
+
+## [0.0.4] - 2020-05-07
+
+* In code documentation implemented from [Mapbox Geocoding API](https://docs.mapbox.com/api/search/#geocoding).
