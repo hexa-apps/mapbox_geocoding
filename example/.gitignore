@@ -28,9 +28,9 @@
 .packages
 .pub-cache/
 .pub/
-.android/
-.ios/
-.test/
+android/
+ios/
+test/
 /build/
 
 # Web related
