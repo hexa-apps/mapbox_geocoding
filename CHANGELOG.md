@@ -22,3 +22,7 @@
 ## [0.0.5] - 2020-05-07
 
 * [pub.dev](https://pub.dev/) health suggestions.
+
+## [0.0.6] - 2020-05-08
+
+* [Geocoding optional parameters](https://docs.mapbox.com/api/search/#geocoding) implemented.
