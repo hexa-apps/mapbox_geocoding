@@ -1,5 +1,5 @@
 name: mapbox_geocoding
-description: Mapbox Geocoding API to make forward and reverse geocoding.
+description: Mapbox Geocoding API library in order to make forward and reverse geocoding.
 version: 0.0.3
 homepage: https://github.com/berkayoruc/mapbox_geocoding/
 
