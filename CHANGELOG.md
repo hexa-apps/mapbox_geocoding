@@ -18,3 +18,7 @@
 ## [0.0.4] - 2020-05-07
 
 * In code documentation implemented from [Mapbox Geocoding API](https://docs.mapbox.com/api/search/#geocoding).
+
+## [0.0.5] - 2020-05-07
+
+* [pub.dev](https://pub.dev/) health suggestions.
