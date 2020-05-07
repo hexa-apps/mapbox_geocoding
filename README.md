@@ -32,6 +32,9 @@ A very [simple example](https://github.com/berkayoruc/mapbox_geocoding/blob/mast
 import 'package:mapbox_geocoding/mapbox_geocoding.dart';
 import 'package:mapbox_geocoding/model/forward_geocoding.dart';
 
+MapboxGeocoding geocoding = MapboxGeocoding();
+String apiKey = 'YOUR_ACCESS_TOKEN';
+
 ///Forward geocoding. Get latitude and longitude from place name.
 getCoordinates(String city) async {
     try {
