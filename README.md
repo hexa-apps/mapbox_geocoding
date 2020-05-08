@@ -1,4 +1,5 @@
 [![Pub](https://img.shields.io/pub/v/mapbox_geocoding)](https://pub.dev/packages/mapbox_geocoding/versions/0.0.7)
+
 Dart Mapbox Geocoding API (not official)
 ================
 
