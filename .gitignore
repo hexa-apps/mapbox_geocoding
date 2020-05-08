@@ -28,6 +28,7 @@
 .packages
 .pub-cache/
 .pub/
+test/
 build/
 
 # Android related
