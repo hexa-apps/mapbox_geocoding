@@ -28,14 +28,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  MapboxGeocoding geocoding = MapboxGeocoding();
-  String apiKey = 'YOUR_ACCESS_TOKEN';
+  MapboxGeocoding geocoding = MapboxGeocoding('YOUR_ACCESS_TOKEN');
 
   ///Forward geocoding. Get latitude and longitude from place name.
   getCoordinates(String city) async {
     try {
       ForwardGeocoding forwardModel =
-          await geocoding.forwardModel(city, apiKey, limit: 3, language: 'tr');
+          await geocoding.forwardModel(city, limit: 3, language: 'tr');
       return forwardModel.features[0].center;
     } catch (Excepetion) {
       return 'Forward Geocoding Error';
@@ -43,10 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   ///Reverse geocoding. Get place name from latitude and longitude.
-  getCity(double lat, double lng, String apiKey) async {
+  getCity(double lat, double lng) async {
     try {
-      ReverseGeocoding reverseModel = await geocoding
-          .reverseModel(lat, lng, apiKey, limit: 7, types: 'region');
+      ReverseGeocoding reverseModel =
+          await geocoding.reverseModel(lat, lng, limit: 7, types: 'region');
       return reverseModel.features[0].placeName;
     } catch (Excepetion) {
       return 'Reverse Geocoding Error';
@@ -67,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
               getCoordinates('Istanbul'),
             ),
             Text(
-              getCity(41.0, 29.0, apiKey),
+              getCity(41.0, 29.0),
               style: Theme.of(context).textTheme.display1,
             ),
           ],

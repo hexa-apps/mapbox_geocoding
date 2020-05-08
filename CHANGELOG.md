@@ -1,3 +1,7 @@
+## [0.1.0] - 2020-05-08
+
+* Access token moved main class.
+
 ## [0.0.11] - 2020-05-08
 
 * Health suggestions fixed.

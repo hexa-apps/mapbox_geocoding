@@ -4,7 +4,10 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class MapboxGeocoding {
+  String _apiKey;
   String urlBase = 'https://api.mapbox.com/geocoding/v5/mapbox.places/';
+
+  MapboxGeocoding(this._apiKey);
 
   ///Returns forward geocoding model.
   ///
@@ -13,8 +16,7 @@ class MapboxGeocoding {
     ///The feature you’re trying to look up. This could be an address, a point of interest name, a city name, etc. When searching for points of interest, it can also be a category name (for example, “coffee shop”). For information on categories, see the [Point of interest category coverage section](https://docs.mapbox.com/api/search/#point-of-interest-category-coverage). The search text should be expressed as a URL-encoded UTF-8 string, and must not contain the semicolon character (either raw or URL-encoded). Your search text, once decoded, must consist of at most 20 words and numbers separated by spacing and punctuation, and at most 256 characters.
     ///
     ///The accuracy of coordinates returned by a forward geocoding request can be impacted by how the addresses in the query are formatted. Learn more about address formatting best practices in the [Address geocoding format guide](https://docs.mapbox.com/help/troubleshooting/address-geocoding-format-guide/).
-    String searchText,
-    String apiKey, {
+    String searchText, {
 
     ///Specify whether to return autocomplete results (true, default) or not (false). When autocomplete is enabled, results will be included that start with the requested string, rather than just responses that match it exactly. For example, a query for India might return both India and Indiana with autocomplete enabled, but only India if it’s disabled.
     ///
@@ -61,7 +63,7 @@ class MapboxGeocoding {
       url += 'proximity=${proximity[0].toString()},${proximity[1].toString()}&';
     }
     if (types.isNotEmpty) url += 'types=$types&';
-    url += 'access_token=$apiKey';
+    url += 'access_token=$_apiKey';
     final response = await http.get(url);
     if (response.statusCode == 200) {
       return ForwardGeocoding.fromJson(jsonDecode(response.body));
@@ -78,8 +80,7 @@ class MapboxGeocoding {
     double lat,
 
     ///A longitude that specifies the location being queried.
-    double lng,
-    String apiKey, {
+    double lng, {
 
     ///Limit results to one country. Permitted values are [ISO 3166 alpha 2 country codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) separated by commas.
     String country = '',
@@ -107,7 +108,7 @@ class MapboxGeocoding {
     if (!limit.isNaN) if (limit > 10) limit = 10;
     url += 'limit=${limit.toString()}&';
     if (types.isNotEmpty) url += 'types=$types&';
-    url += 'access_token=$apiKey';
+    url += 'access_token=$_apiKey';
     final response = await http.get(url);
     if (response.statusCode == 200) {
       return ReverseGeocoding.fromJson(jsonDecode(response.body));
