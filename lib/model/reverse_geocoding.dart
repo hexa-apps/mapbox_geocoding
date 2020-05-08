@@ -18,16 +18,16 @@ class ReverseGeocoding {
     type = json['type'];
     query = json['query'].cast<double>();
     if (json['features'] != null) {
-      features = new List<Features>();
+      features = List<Features>();
       json['features'].forEach((v) {
-        features.add(new Features.fromJson(v));
+        features.add(Features.fromJson(v));
       });
     }
     attribution = json['attribution'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['type'] = this.type;
     data['query'] = this.query;
     if (this.features != null) {
@@ -95,13 +95,13 @@ class Features {
     placeType = json['place_type'].cast<String>();
     relevance = json['relevance'];
     properties = json['properties'] != null
-        ? new Properties.fromJson(json['properties'])
+        ? Properties.fromJson(json['properties'])
         : null;
     text = json['text'];
     placeName = json['place_name'];
     center = json['center'].cast<num>();
     geometry = json['geometry'] != null
-        ? new Geometry.fromJson(json['geometry'])
+        ? Geometry.fromJson(json['geometry'])
         : null;
     address = json['address'];
     if (json['context'] != null) {

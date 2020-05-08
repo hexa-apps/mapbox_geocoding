@@ -1,3 +1,7 @@
+## [0.0.9] - 2020-05-08
+
+* Health suggestions fixed.
+
 ## [0.0.8] - 2020-05-08
 
 * Remove flutter dependencies.
