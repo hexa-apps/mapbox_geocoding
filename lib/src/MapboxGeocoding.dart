@@ -49,22 +49,25 @@ class MapboxGeocoding {
     if (searchText.isEmpty) return null;
     var url = urlBase + '$searchText.json?';
     if (!autoComplete) url += 'autocomplete=${autoComplete.toString()}&';
-    if (bbox != null && bbox.length == 4)
-      {url +=
-          'bbox=${bbox[0].toString()},${bbox[1].toString()},${bbox[2].toString()},${bbox[3].toString()},&';}
+    if (bbox != null && bbox.length == 4) {
+      url +=
+          'bbox=${bbox[0].toString()},${bbox[1].toString()},${bbox[2].toString()},${bbox[3].toString()},&';
+    }
     if (country.isNotEmpty) url += 'country=$country&';
     if (language.isNotEmpty) url += 'language=$language&';
     if (!limit.isNaN) if (limit > 10) limit = 10;
     url += 'limit=${limit.toString()}&';
-    if (proximity != null && proximity.length == 2)
-      {url += 'proximity=${proximity[0].toString()},${proximity[1].toString()}&';}
+    if (proximity != null && proximity.length == 2) {
+      url += 'proximity=${proximity[0].toString()},${proximity[1].toString()}&';
+    }
     if (types.isNotEmpty) url += 'types=$types&';
     url += 'access_token=$apiKey';
     final response = await http.get(url);
-    if (response.statusCode == 200)
-      {return ForwardGeocoding.fromJson(jsonDecode(response.body));}
-    else
-      {return null;}
+    if (response.statusCode == 200) {
+      return ForwardGeocoding.fromJson(jsonDecode(response.body));
+    } else {
+      return null;
+    }
   }
 
   ///Returns reverse geocoding model.
@@ -106,9 +109,10 @@ class MapboxGeocoding {
     if (types.isNotEmpty) url += 'types=$types&';
     url += 'access_token=$apiKey';
     final response = await http.get(url);
-    if (response.statusCode == 200)
-      {return ReverseGeocoding.fromJson(jsonDecode(response.body));}
-    else
-      {return null;}
+    if (response.statusCode == 200) {
+      return ReverseGeocoding.fromJson(jsonDecode(response.body));
+    } else {
+      return null;
+    }
   }
 }

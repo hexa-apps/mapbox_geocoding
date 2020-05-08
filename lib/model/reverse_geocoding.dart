@@ -105,16 +105,16 @@ class Features {
         : null;
     address = json['address'];
     if (json['context'] != null) {
-      context = new List<Context>();
+      context = List<Context>();
       json['context'].forEach((v) {
-        context.add(new Context.fromJson(v));
+        context.add(Context.fromJson(v));
       });
     }
     bbox = json['bbox'].cast<double>();
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
     data['type'] = this.type;
     data['place_type'] = this.placeType;
@@ -156,7 +156,7 @@ class Properties {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['accuracy'] = this.accuracy;
     data['wikidata'] = this.wikidata;
     data['short_code'] = this.shortCode;
@@ -179,7 +179,7 @@ class Geometry {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['type'] = this.type;
     data['coordinates'] = this.coordinates;
     return data;
@@ -206,7 +206,7 @@ class Context {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
     data['text'] = this.text;
     data['wikidata'] = this.wikidata;

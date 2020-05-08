@@ -1,3 +1,7 @@
+## [0.0.10] - 2020-05-08
+
+* Health suggestions fixed.
+
 ## [0.0.9] - 2020-05-08
 
 * Health suggestions fixed.
