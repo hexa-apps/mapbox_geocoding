@@ -100,9 +100,8 @@ class Features {
     text = json['text'];
     placeName = json['place_name'];
     center = json['center'].cast<num>();
-    geometry = json['geometry'] != null
-        ? Geometry.fromJson(json['geometry'])
-        : null;
+    geometry =
+        json['geometry'] != null ? Geometry.fromJson(json['geometry']) : null;
     address = json['address'];
     if (json['context'] != null) {
       context = List<Context>();

@@ -105,9 +105,8 @@ class Features {
       });
     }
     center = json['center'].cast<num>();
-    geometry = json['geometry'] != null
-        ? Geometry.fromJson(json['geometry'])
-        : null;
+    geometry =
+        json['geometry'] != null ? Geometry.fromJson(json['geometry']) : null;
     if (json['context'] != null) {
       context = List<Context>();
       json['context'].forEach((v) {

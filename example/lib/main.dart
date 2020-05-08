@@ -34,7 +34,8 @@ class _MyHomePageState extends State<MyHomePage> {
   ///Forward geocoding. Get latitude and longitude from place name.
   getCoordinates(String city) async {
     try {
-      ForwardGeocoding forwardModel = await geocoding.forwardModel(city, apiKey, limit: 3, language: 'tr');
+      ForwardGeocoding forwardModel =
+          await geocoding.forwardModel(city, apiKey, limit: 3, language: 'tr');
       return forwardModel.features[0].center;
     } catch (Excepetion) {
       return 'Forward Geocoding Error';
@@ -44,7 +45,8 @@ class _MyHomePageState extends State<MyHomePage> {
   ///Reverse geocoding. Get place name from latitude and longitude.
   getCity(double lat, double lng, String apiKey) async {
     try {
-      ReverseGeocoding reverseModel = await geocoding.reverseModel(lat, lng, apiKey, limit: 7, types: 'region');
+      ReverseGeocoding reverseModel = await geocoding
+          .reverseModel(lat, lng, apiKey, limit: 7, types: 'region');
       return reverseModel.features[0].placeName;
     } catch (Excepetion) {
       return 'Reverse Geocoding Error';
