@@ -1,4 +1,4 @@
-[![Pub](https://img.shields.io/pub/v/mapbox_geocoding)](https://pub.dev/packages/mapbox_geocoding/versions/0.1.0)
+[![Pub](https://img.shields.io/pub/v/mapbox_geocoding)](https://pub.dev/packages/mapbox_geocoding/versions/0.1.1)
 
 Dart Mapbox Geocoding API (not official)
 ================
@@ -38,13 +38,12 @@ A very [simple example](https://github.com/berkayoruc/mapbox_geocoding/blob/mast
 import 'package:mapbox_geocoding/mapbox_geocoding.dart';
 import 'package:mapbox_geocoding/model/forward_geocoding.dart';
 
-MapboxGeocoding geocoding = MapboxGeocoding();
-String apiKey = 'YOUR_ACCESS_TOKEN';
+MapboxGeocoding geocoding = MapboxGeocoding('YOUR_ACCESS_TOKEN');
 
 ///Forward geocoding. Get latitude and longitude from place name.
 getCoordinates(String city) async {
     try {
-        ForwardGeocoding forwardModel = await geocoding.forwardModel(city, apiKey);
+        ForwardGeocoding forwardModel = await geocoding.forwardModel(city);
         return forwardModel.features[0].center;
     } catch (Excepetion) {
         return 'Forward Geocoding Error';
@@ -53,7 +52,7 @@ getCoordinates(String city) async {
 ///Reverse geocoding. Get place name from latitude and longitude.
 getCity(double lat, double lng, String apiKey) async {
     try {
-        ReverseGeocoding reverseModel = await geocoding.reverseModel(lat, lng, apiKey);
+        ReverseGeocoding reverseModel = await geocoding.reverseModel(lat, lng);
         return reverseModel.features[0].placeName;
     } catch (Excepetion) {
         return 'Reverse Geocoding Error';
