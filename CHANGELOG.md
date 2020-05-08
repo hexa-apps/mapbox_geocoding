@@ -31,3 +31,7 @@
 
 * Geocoding optional parameters bug fixed.
 * Example updated.
+
+## [0.0.8] - 2020-05-08
+
+* Remove flutter dependencies.
