@@ -106,8 +106,7 @@ class MapboxGeocoding {
     if (country.isNotEmpty) url += 'country=$country&';
     if (language.isNotEmpty) url += 'language=$language&';
     if (!limit.isNaN) if (limit > 10) limit = 10;
-    url += 'limit=${limit.toString()}&';
-    if (types.isNotEmpty) url += 'types=$types&';
+    if (types.isNotEmpty) url += 'types=$types&limit=${limit.toString()}&';
     url += 'access_token=$_apiKey';
     final response = await http.get(url);
     if (response.statusCode == 200) {
