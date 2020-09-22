@@ -1,3 +1,7 @@
+## [0.1.2] - 2020-09-22
+
+* Reverse geocoding parameter error fixed.
+
 ## [0.1.1] - 2020-05-08
 
 * Readme updated.
