@@ -14,11 +14,13 @@ This project is a library to use [Mapbox Geocoding API](https://docs.mapbox.com/
 - [License](#license)
 
 <a name="documentation"/>
+
 ## Documentation ##
 
 Library documentation is [here](https://pub.dev/documentation/mapbox_geocoding/latest/).
 
 <a name="usage"/>
+
 ## Usage ##
 
 To use this library in your code:
@@ -69,6 +71,7 @@ getCity(double lat, double lng, String apiKey) async {
 ```
 
 <a name="license"/>
+
 ## License ##
 
 [MIT](https://github.com/berkayoruc/mapbox_geocoding/blob/master/LICENSE)
