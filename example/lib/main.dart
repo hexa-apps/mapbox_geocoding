@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:mapbox_geocoding/mapbox_geocoding.dart';
 import 'package:mapbox_geocoding/model/forward_geocoding.dart';
@@ -67,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               getCity(41.0, 29.0),
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.bodyText1,
             ),
           ],
         ),
