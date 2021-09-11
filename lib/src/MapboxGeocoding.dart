@@ -64,7 +64,7 @@ class MapboxGeocoding {
     }
     if (types.isNotEmpty) url += 'types=$types&';
     url += 'access_token=$_apiKey';
-    final response = await http.get(url);
+    final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       return ForwardGeocoding.fromJson(jsonDecode(response.body));
     } else {
@@ -108,7 +108,7 @@ class MapboxGeocoding {
     if (!limit.isNaN) if (limit > 10) limit = 10;
     if (types.isNotEmpty) url += 'types=$types&limit=${limit.toString()}&';
     url += 'access_token=$_apiKey';
-    final response = await http.get(url);
+    final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       return ReverseGeocoding.fromJson(jsonDecode(response.body));
     } else {
