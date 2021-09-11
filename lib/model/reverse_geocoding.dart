@@ -18,7 +18,7 @@ class ReverseGeocoding {
     type = json['type'];
     query = json['query'].cast<double>();
     if (json['features'] != null) {
-      features = List<Features>();
+      features = <Features>[];
       json['features'].forEach((v) {
         features.add(Features.fromJson(v));
       });
@@ -104,7 +104,7 @@ class Features {
         json['geometry'] != null ? Geometry.fromJson(json['geometry']) : null;
     address = json['address'];
     if (json['context'] != null) {
-      context = List<Context>();
+      context = <Context>[];
       json['context'].forEach((v) {
         context.add(Context.fromJson(v));
       });

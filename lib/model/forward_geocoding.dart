@@ -18,7 +18,7 @@ class ForwardGeocoding {
     type = json['type'];
     query = json['query'].cast<String>();
     if (json['features'] != null) {
-      features = List<Features>();
+      features = <Features>[];
       json['features'].forEach((v) {
         features.add(Features.fromJson(v));
       });
@@ -89,7 +89,7 @@ class Features {
     id = json['id'];
     type = json['type'];
     if (json['place_type'] != null) {
-      placeType = List<String>();
+      placeType = <String>[];
       json['place_type'].forEach((v) => placeType.add(v));
     }
     relevance = json['relevance'];
@@ -99,7 +99,7 @@ class Features {
     text = json['text'];
     placeName = json['place_name'];
     if (json['bbox'] != null) {
-      bbox = List<num>();
+      bbox = <num>[];
       json['bbox'].forEach((v) {
         bbox.add(v);
       });
@@ -108,7 +108,7 @@ class Features {
     geometry =
         json['geometry'] != null ? Geometry.fromJson(json['geometry']) : null;
     if (json['context'] != null) {
-      context = List<Context>();
+      context = <Context>[];
       json['context'].forEach((v) {
         context.add(Context.fromJson(v));
       });
