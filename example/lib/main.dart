@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               getCity(41.0, 29.0),
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ],
         ),
