@@ -1,16 +1,16 @@
 ///The forward geocoding query type allows you to look up a single location by name and returns its geographic coordinates.
 class ForwardGeocoding {
   ///```"FeatureCollection"```, a GeoJSON type from the [GeoJSON specification](https://tools.ietf.org/html/rfc7946).
-  String type;
+  String? type;
 
   ///An array of space and punctuation-separated strings from the original query.
-  List<String> query;
+  List<String>? query;
 
   ///Returned features are ordered by ```relevance```.
-  List<Features> features;
+  List<Features>? features;
 
   ///A string that attributes the results of the Mapbox Geocoding API to Mapbox.
-  String attribution;
+  String? attribution;
 
   ForwardGeocoding({this.type, this.query, this.features, this.attribution});
 
@@ -18,9 +18,9 @@ class ForwardGeocoding {
     type = json['type'];
     query = json['query'].cast<String>();
     if (json['features'] != null) {
-      features = List<Features>();
+      features = <Features>[];
       json['features'].forEach((v) {
-        features.add(Features.fromJson(v));
+        features!.add(Features.fromJson(v));
       });
     }
     attribution = json['attribution'];
@@ -31,7 +31,7 @@ class ForwardGeocoding {
     data['type'] = this.type;
     data['query'] = this.query;
     if (this.features != null) {
-      data['features'] = this.features.map((v) => v.toJson()).toList();
+      data['features'] = this.features!.map((v) => v.toJson()).toList();
     }
     data['attribution'] = this.attribution;
     return data;
@@ -40,37 +40,37 @@ class ForwardGeocoding {
 
 class Features {
   ///A feature ID in the format ```{type}.{id}``` where ```{type}``` is the lowest hierarchy feature in the place_type field. The ```{id}``` suffix of the feature ID is unstable and may change within versions.
-  String id;
+  String? id;
 
   ///```"Feature"```, a GeoJSON type from the GeoJSON specification.
-  String type;
+  String? type;
 
   ///An array of feature types describing the feature. Options are ```country```, ```region```, ```postcode```, ```district```, ```place```, ```locality```, ```neighborhood```, ```address```, and ```poi```. Most features have only one type, but if the feature has multiple types, all applicable types will be listed in the array. (For example, Vatican City is a ```country```, ```region```, and ```place```.)
-  List<String> placeType;
+  List<String>? placeType;
 
   ///Indicates how well the returned feature matches the user's query on a scale from 0 to 1. 0 means the result does not match the query text at all, while 1 means the result fully matches the query text. You can use the relevance property to remove results that don’t fully match the query. Learn more about textual relevance in the [Search result prioritization](https://docs.mapbox.com/help/how-mapbox-works/geocoding/#search-result-prioritization) guide.
-  num relevance;
+  num? relevance;
 
   ///A string representing the feature in the requested language, if specified.
-  Properties properties;
+  Properties? properties;
 
   ///A string representing the feature in the requested language, if specified, and its full result hierarchy.
-  String text;
+  String? text;
 
   ///The coordinates of the feature’s center in the form ```[longitude,latitude]```. This may be the literal centroid of the feature’s geometry, or the center of human activity within the feature (for example, the downtown area of a city).
-  String placeName;
+  String? placeName;
 
   ///A bounding box array in the form ```[minX,minY,maxX,maxY]```.
-  List<num> bbox;
+  List<num>? bbox;
 
   ///An object describing the spatial geometry of the returned feature.
-  List<num> center;
+  List<num>? center;
 
   ///(Optional)A string of the house number for the returned address feature. Note that unlike the address property for poi features, this property is outside the properties object.
-  Geometry geometry;
+  Geometry? geometry;
 
   ///A bounding box array in the form ```[minX,minY,maxX,maxY]```.
-  List<Context> context;
+  List<Context>? context;
 
   Features(
       {this.id,
@@ -89,8 +89,8 @@ class Features {
     id = json['id'];
     type = json['type'];
     if (json['place_type'] != null) {
-      placeType = List<String>();
-      json['place_type'].forEach((v) => placeType.add(v));
+      placeType = <String>[];
+      json['place_type'].forEach((v) => placeType!.add(v));
     }
     relevance = json['relevance'];
     properties = json['properties'] != null
@@ -99,18 +99,18 @@ class Features {
     text = json['text'];
     placeName = json['place_name'];
     if (json['bbox'] != null) {
-      bbox = List<num>();
+      bbox = <num>[];
       json['bbox'].forEach((v) {
-        bbox.add(v);
+        bbox!.add(v);
       });
     }
     center = json['center'].cast<num>();
     geometry =
         json['geometry'] != null ? Geometry.fromJson(json['geometry']) : null;
     if (json['context'] != null) {
-      context = List<Context>();
+      context = <Context>[];
       json['context'].forEach((v) {
-        context.add(Context.fromJson(v));
+        context!.add(Context.fromJson(v));
       });
     }
   }
@@ -120,23 +120,23 @@ class Features {
     data['id'] = this.id;
     data['type'] = this.type;
     if (this.placeType != null) {
-      data['place_type'] = this.placeType.map((v) => v).toList();
+      data['place_type'] = this.placeType!.map((v) => v).toList();
     }
     data['relevance'] = this.relevance;
     if (this.properties != null) {
-      data['properties'] = this.properties.toJson();
+      data['properties'] = this.properties!.toJson();
     }
     data['text'] = this.text;
     data['place_name'] = this.placeName;
     if (this.bbox != null) {
-      data['bbox'] = this.bbox.map((v) => v).toList();
+      data['bbox'] = this.bbox!.map((v) => v).toList();
     }
     data['center'] = this.center;
     if (this.geometry != null) {
-      data['geometry'] = this.geometry.toJson();
+      data['geometry'] = this.geometry!.toJson();
     }
     if (this.context != null) {
-      data['context'] = this.context.map((v) => v.toJson()).toList();
+      data['context'] = this.context!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -144,19 +144,19 @@ class Features {
 
 class Properties {
   ///The [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country and [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) region code for the returned feature.
-  String wikidata;
+  String? wikidata;
 
   ///Describes whether or not the feature is in the poi.landmark data type. This data type is deprecated, and this property will be present on all poi features for backwards compatibility reasons but will always be true.
-  bool landmark;
+  bool? landmark;
 
   ///A string of the full street address for the returned poi feature. Note that unlike the address property for address features, this property is inside the properties object.
-  String address;
+  String? address;
 
   ///A string of comma-separated categories for the returned poi feature.
-  String category;
+  String? category;
 
   ///The name of a suggested [Maki](https://www.mapbox.com/maki-icons/) icon to visualize a poi feature based on its category
-  String maki;
+  String? maki;
 
   Properties(
       {this.wikidata, this.landmark, this.address, this.category, this.maki});
@@ -182,10 +182,10 @@ class Properties {
 
 class Geometry {
   ///"Point", a GeoJSON type from the [GeoJSON specification](https://tools.ietf.org/html/rfc7946).
-  String type;
+  String? type;
 
   ///An array in the format ```[longitude,latitude]``` at the center of the specified bbox.
-  List<num> coordinates;
+  List<num>? coordinates;
 
   Geometry({this.type, this.coordinates});
 
@@ -203,14 +203,14 @@ class Geometry {
 }
 
 class Context {
-  String id;
+  String? id;
 
   ///The [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country and [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) region code for the returned feature.
-  String shortCode;
+  String? shortCode;
 
   ///The [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country and [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) region code for the returned feature.
-  String wikidata;
-  String text;
+  String? wikidata;
+  String? text;
 
   Context({this.id, this.shortCode, this.wikidata, this.text});
 

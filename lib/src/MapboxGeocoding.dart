@@ -17,14 +17,13 @@ class MapboxGeocoding {
     ///
     ///The accuracy of coordinates returned by a forward geocoding request can be impacted by how the addresses in the query are formatted. Learn more about address formatting best practices in the [Address geocoding format guide](https://docs.mapbox.com/help/troubleshooting/address-geocoding-format-guide/).
     String searchText, {
-
     ///Specify whether to return autocomplete results (true, default) or not (false). When autocomplete is enabled, results will be included that start with the requested string, rather than just responses that match it exactly. For example, a query for India might return both India and Indiana with autocomplete enabled, but only India if it’s disabled.
     ///
     ///When autocomplete is enabled, each user keystroke counts as one request to the Geocoding API. For example, a search for "coff" would be reflected as four separate Geocoding API requests. To reduce the total requests sent, you can configure your application to only call the Geocoding API after a specific number of characters are typed.
     bool autoComplete = true,
 
     ///Limit results to only those contained within the supplied bounding box. Bounding boxes should be supplied as four numbers separated by commas, in ```minLon,minLat,maxLon,maxLat``` order. The bounding box cannot cross the 180th meridian.
-    List<double> bbox,
+    List<double>? bbox,
 
     ///Limit results to one country. Permitted values are [ISO 3166 alpha 2 country codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) separated by commas.
     String country = '',
@@ -41,7 +40,7 @@ class MapboxGeocoding {
     int limit = 5,
 
     ///Bias the response to favor results that are closer to this location, provided as two comma-separated coordinates in ```longitude,latitude``` order.
-    List<double> proximity,
+    List<double>? proximity,
 
     ///Filter results to include only a subset (one or more) of the available feature types. Options are country, region, postcode, district, place, locality, neighborhood, address, and poi. Multiple options can be comma-separated. Note that poi.landmark is a deprecated type that, while still supported, returns the same data as is returned using the poi type.
     ///
@@ -64,7 +63,7 @@ class MapboxGeocoding {
     }
     if (types.isNotEmpty) url += 'types=$types&';
     url += 'access_token=$_apiKey';
-    final response = await http.get(url);
+    final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       return ForwardGeocoding.fromJson(jsonDecode(response.body));
     } else {
@@ -81,7 +80,6 @@ class MapboxGeocoding {
 
     ///A longitude that specifies the location being queried.
     double lng, {
-
     ///Limit results to one country. Permitted values are [ISO 3166 alpha 2 country codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) separated by commas.
     String country = '',
 
@@ -108,7 +106,7 @@ class MapboxGeocoding {
     if (!limit.isNaN) if (limit > 10) limit = 10;
     if (types.isNotEmpty) url += 'types=$types&limit=${limit.toString()}&';
     url += 'access_token=$_apiKey';
-    final response = await http.get(url);
+    final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       return ReverseGeocoding.fromJson(jsonDecode(response.body));
     } else {
